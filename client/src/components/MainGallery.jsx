@@ -1,40 +1,35 @@
-import React from 'react';
+import React from "react";
 import Slider from "react-slick";
 
-
-
-
 const galleryStyle = {
-	padding: '5px',
-	width: '900px'
+  padding: "5px",
+  width: "900px"
 };
 
+const MainGallery = props => {
+  return (
+    <div onClick={props.fullscreen} style={galleryStyle}>
+      <Slider
+        initialSlide={props.slide}
+        infinite={false}
+        speed={200}
+        slidesToShow={2}
+        slidesToScroll={1}
+        accessibility={true}
+      >
+        {props.images.map((element, index) => {
+          return (
+            <img
+              onClick={() => {
+                props.slideSet(index);
+              }}
+              src={element}
+            />
+          );
+        })}
+      </Slider>
+    </div>
+  );
+};
 
-
-
-
-const MainGallery = (props) => {
-		return (
-			<div onClick = {props.fullscreen} style={galleryStyle} >
-				<Slider
-					initialSlide={props.slide}
-					infinite={false}
-					speed={200}
-					slidesToShow={2}
-					slidesToScroll={1}
-					accessibility={true}
-				>
-					{props.images.map((element, index) => {
-						return (
-								<img onClick={()=> {props.slideSet(index)}} src={element}></img>
-						)
-					})}
-				</Slider>
-			</div>
-		)
-}
-
-
-
-
-export default MainGallery
+export default MainGallery;
