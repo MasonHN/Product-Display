@@ -64,11 +64,16 @@ class ProductDisplay extends React.Component {
   }
 
   productChange() {
-    Axios.get(`http://localhost:3003/products${this.state.uuid}`, {
-      params: {
-        id: this.state.uuid
+    Axios.get(
+      `http://ec2-18-222-172-209.us-east-2.compute.amazonaws.com/products${
+        this.state.uuid
+      }`,
+      {
+        params: {
+          id: this.state.uuid
+        }
       }
-    })
+    )
       .then(results => {
         let images = [];
         for (let key in results.data.images[0]) {
