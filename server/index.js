@@ -5,6 +5,7 @@ const CORS = require("cors");
 const compression = require("compression");
 
 const app = express();
+const port = process.env.PORT || 3003;
 
 app.use(bodyParser());
 app.use(compression());
@@ -36,6 +37,6 @@ app.get("/products:id", (req, res) => {
   });
 });
 
-app.listen(3003, () => {
-  console.log("listening on port 3003");
+app.listen(port, () => {
+  console.log("listening on port", port);
 });
