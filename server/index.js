@@ -2,10 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("../database/index.js");
 const CORS = require("cors");
+const compression = require("compression");
 
 const app = express();
 
 app.use(bodyParser());
+app.use(compression());
 
 app.use(CORS());
 
