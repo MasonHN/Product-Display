@@ -65,7 +65,7 @@ class ProductDisplay extends React.Component {
 
   productChange() {
     Axios.get(
-      `http://ec2-18-222-172-209.us-east-2.compute.amazonaws.com/products${
+      `https://product-display-fashova.herokuapp.com/products${
         this.state.uuid
       }`,
       {
